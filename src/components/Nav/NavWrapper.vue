@@ -2,20 +2,19 @@
   <nav class="nav">
     <Logo />
     <NavigationItems />
-    <SearchBar />
+    
   </nav>
 </template>
 
 <script>
   import Logo from './Logo.vue';
   import NavigationItems from './NavigationItems.vue';
-  import SearchBar from '../SearchBar/SearchBar.vue';
+  
 
   export default {
     components: {
       NavigationItems,
-      Logo,
-      SearchBar
+      Logo
     }
   }
 </script>

@@ -15,15 +15,27 @@
     <NavigationItem>
       Item do menu
     </NavigationItem>
+
+    <NavigationItem class="flex__right">
+      <SearchBar />
+    </NavigationItem>
+
+    <NavigationItem>
+      <Cart />
+    </NavigationItem>
   </ul>
 </template>
 
 <script>
   import NavigationItem from './NavigationItem.vue'
+  import SearchBar from '../SearchBar/SearchBar.vue';
+  import Cart from '../Cart/Cart.vue';
   
   export default {
     components: {
-      NavigationItem
+      NavigationItem,
+      SearchBar,
+      Cart
     }
   }
 </script>
@@ -31,6 +43,7 @@
 <style scoped>
   .nav__menu {
     display: flex;
+    flex: 3;
     height: 100%;
     align-items: center;
     list-style-type: none;
@@ -38,4 +51,6 @@
     padding: 0;
     letter-spacing: 1px;
   }
+
+  .flex__right { margin-left: auto; }
 </style>

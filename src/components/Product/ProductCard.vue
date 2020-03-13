@@ -1,9 +1,9 @@
 <template>
-  <Card class="product__card" style="background-image: url(https://thumbs.dreamstime.com/b/beautiful-dandelion-flower-flying-feathers-colorful-bokeh-background-macro-shot-summer-nature-scene-beautiful-dandelion-147400154.jpg);">
+  <Card class="product__card" :style="{backgroundImage: `url(${product.images[0].imageUrl})`}">
     <CardBody class="">
-      <CardTitle title="Produto XPTO" />
+      <CardTitle :title="product.name" />
       <div class="product__price">
-        <CardText content="R$ 20,00" />
+        <CardText :content="'R$' + product.Value " />
         <FloatingButton>
           <font-awesome-icon icon="plus" />
         </FloatingButton>
@@ -20,6 +20,12 @@
   import FloatingButton from '../Button/FloatingButton.vue'
 
   export default {
+    props: {
+      product: {
+        type: Object,
+        required: true
+      }
+    },
     components: {
       Card,
       CardTitle,
@@ -37,7 +43,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    background-size: cover;
+    background-size: contain;
   }
 
   .product__price {

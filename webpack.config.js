@@ -11,19 +11,38 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.vue$/, 
+        use: 'vue-loader'
+      },
+      {
         test: /\.js$/,
         use: 'babel-loader',
         exclude: /node_modules/
-      },
-      {
-        test: /\.vue$/, 
-        use: 'vue-loader'
       },
       {
         test: /\.css$/,
         use: [
           'vue-style-loader',
           'css-loader'
+        ]
+      },
+      {
+        test: /\.ttf$/,
+        use: 'url-loader'
+      },
+      {
+        test: /\.svg$/,
+        use: 'vue-svg-loader'
+      },
+      {
+        test: /\.png$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              esModule: false
+            }
+          }
         ]
       }
     ]
@@ -35,6 +54,12 @@ module.exports = {
       filename: 'index.html'
     })
   ],
+  resolve: {
+    alias: {
+      '@': path.resolve('src'),
+
+    }
+  },
   devServer: {
     port: 9000
   }

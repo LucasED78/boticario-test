@@ -1,6 +1,7 @@
 import App from './App.vue';
 import Vue from 'vue';
 import FontAwesomeIcon from './assets/icons'
+import './global.css'
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 

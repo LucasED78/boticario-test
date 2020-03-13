@@ -28,6 +28,7 @@
     left: 0;
     display: flex;
     align-items: center;
+    background: #ffffff;
     box-shadow: 0 0 10px lightgrey;
     z-index: 10;
   }

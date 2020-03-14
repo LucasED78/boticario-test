@@ -5,10 +5,10 @@
     </NavWrapper>
     <ContentWrapper>
       <Loading v-if="loading" />
-      <!-- <ProductList 
+      <ProductList 
        :products="products"
        v-if="products.length"
-      /> -->
+      />
     </ContentWrapper>
   </div>
 </template>
@@ -20,7 +20,8 @@
   import ProductList from './components/Product/ProductList.vue';
   import ProductsService from './services/ProductsService';
   import Loading from './components/Loading/Loading.vue';
-  
+  import { EventBus } from './event-bus';
+
   export default {
     data(){
       return {
@@ -41,11 +42,15 @@
 
         this.products = await ProductsService.getAll();
         
-        // this.loading = false;
+        this.loading = false;
       } catch(e){
         this.loading = false;
         console.log(e);
       }
+
+      EventBus.$on('floatingButtonClicked', id => {
+        EventBus.$emit('addItemCart', 1);
+      });
     }
   }
 </script>

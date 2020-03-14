@@ -1,13 +1,20 @@
 <template>
-  <div>
-    adasdsa
-  </div>
+  <ContentWrapper>
+    <ProductDetail />
+  </ContentWrapper>
 </template>
 
 <script>
+  import ContentWrapper from '@/components/ContentWrapper.vue';
+  import ProductDetail from '@/components/Product/ProductDetail.vue';
+
   export default {
+    components: {
+      ContentWrapper,
+      ProductDetail
+    },
     created: function(){
-      alert(this.$route.params.productId);
+      console.log(this.$route.params.productId);
     }
   }
 </script>

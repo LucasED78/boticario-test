@@ -1,7 +1,9 @@
 <template>
   <ul class="nav__menu">
     <NavigationItem>
-      Item do menu
+      <router-link to="/test">
+        Item to menu
+      </router-link>
     </NavigationItem>
 
     <NavigationItem>

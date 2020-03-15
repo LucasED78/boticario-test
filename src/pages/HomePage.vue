@@ -13,7 +13,6 @@
   import ProductList from '@/components/Product/ProductList.vue';
   import ProductsService from '@/services/ProductsService';
   import Loading from '@/components/Loading/Loading.vue';
-  import { EventBus } from '@/event-bus';
 
   export default {
     data(){
@@ -38,10 +37,14 @@
         this.loading = false;
         console.log(e);
       }
-
-      EventBus.$on('floatingButtonClicked', id => {
-        EventBus.$emit('addItemCart', id);
+    },
+    mounted(){
+      this.$bus.$on('floatingButtonClicked', id => {
+        this.$bus.$emit('addItemCart', id);
       });
+    },
+    destroyed(){
+      this.$bus.$off('floatingButtonClicked');
     }
   }
 </script>

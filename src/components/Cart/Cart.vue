@@ -9,7 +9,6 @@
 
 <script>
   import Notification from '@/components/Notification/Notification.vue'
-  import { EventBus } from '@/event-bus';
 
   export default {
     data(){
@@ -27,7 +26,7 @@
       Notification
     },
     created: function(){
-      EventBus.$on('addItemCart', id => {
+      this.$bus.$on('addItemCart', id => {
         this.cart.push(id);
       })
     }

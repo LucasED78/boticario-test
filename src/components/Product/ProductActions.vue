@@ -15,7 +15,6 @@
 <script>
   import Button from '@/components/Button/Button.vue';
   import IconButton from '@/components/Button/IconButton.vue';
-  import { EventBus } from '@/event-bus';
 
   export default {
     props: {
@@ -30,8 +29,11 @@
     },
     methods: {
       iconButtonHandler: function(){
-        EventBus.$emit('addItemCart', this.productId);
+        this.$bus.$emit('addItemCart', this.productId);
       }
+    },
+    destroyed(){
+      this.$bus.$off('addItemCart', this.productId);
     }
   }
 </script>

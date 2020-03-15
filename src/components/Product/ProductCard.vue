@@ -1,12 +1,12 @@
 <template>
   <Card 
     class="product__card" 
-    :style="{backgroundImage: `url(${product.images[0].imageUrl})`}" 
+    :style="{backgroundImage: `url(${product.imageUrl[0]})`}" 
     @click.native.self="productClickedHandler">
     <CardBody class="">
       <CardTitle :title="product.name" />
       <div class="product__price">
-        <CardText :content="'R$' + product.Value " />
+        <CardText :content="'R$' + product.price " />
         <FloatingButton :buttonClickedHandler="buttonClickedHandler">
           <font-awesome-icon icon="plus" />
         </FloatingButton>
@@ -42,13 +42,13 @@
     },
     methods: {
       buttonClickedHandler(){
-        EventBus.$emit('floatingButtonClicked', this.product.id);
+        EventBus.$emit('floatingButtonClicked', this.product._id);
       },
       getFullPath(id){
         return `/product/${id}`;
       },
       productClickedHandler(){
-        this.$router.push(this.getFullPath(this.product.id));
+        this.$router.push(this.getFullPath(this.product._id));
       }
     }
   }

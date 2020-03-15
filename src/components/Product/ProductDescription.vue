@@ -1,14 +1,14 @@
 <template>
   <div class="product__about">
     <h3 class="product__title">
-      {{ product.title }}
+      {{ product.name }}
     </h3>
 
     <p class="product__description">
       {{ product.description }}
     </p>
 
-    <ProductActions />
+    <ProductActions :productId="product._id" />
   </div>
 </template>
 

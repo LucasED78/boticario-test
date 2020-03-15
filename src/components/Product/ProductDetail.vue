@@ -1,7 +1,7 @@
 <template>
   <div class="grid">
-    <ProductGallery :images="['https://images-submarino.b2w.io/produtos/01/00/img/134385/6/134385671_1GG.jpg', 'https://images-submarino.b2w.io/produtos/01/00/img/134385/6/134385671_1GG.jpg', 'https://images-submarino.b2w.io/produtos/01/00/img/134385/6/134385671_1GG.jpg', 'https://images-submarino.b2w.io/produtos/01/00/img/134385/6/134385671_1GG.jpg']" />
-    <ProductDescription :product="{ title: 'sadasdasdasdas', description: 'lorem' }" />
+    <ProductGallery :images="product.imageUrl" />
+    <ProductDescription :product="product" />
   </div>
 </template>
 
@@ -11,6 +11,12 @@
   import ProductDescription from './ProductDescription.vue';
 
   export default {
+    props: {
+      product: {
+        type: Object,
+        required: true
+      }
+    },
     components: {
       ProductGallery,
       ProductImage,
@@ -22,7 +28,8 @@
 <style scoped>
   .grid {
     display: grid;
-    grid-template-columns: repeat(2, 465px);
-    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 110px;
+    grid-row-gap: 20px;
   }
 </style>

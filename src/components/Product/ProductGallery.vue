@@ -5,7 +5,7 @@
     <div class="product__thumbnail">
       <ProductImage 
         class="image__thumbnail"
-        v-for="image in images.splice(1)"
+        v-for="image in images.slice(1)"
         :key="getIndex(image)"
         :imageUrl="image" />
     </div>

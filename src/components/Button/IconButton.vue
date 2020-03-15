@@ -14,5 +14,7 @@
     color: white;
     font-size: 22px;
     letter-spacing: 1px;
+    outline: none;
+    cursor: pointer;
   }
 </style>

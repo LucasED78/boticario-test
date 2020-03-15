@@ -2,7 +2,7 @@
   <div class="product__actions">
     <Button class="action__buy" content="COMPRAR" />
 
-    <IconButton>
+    <IconButton @click.native="iconButtonHandler">
       <font-awesome-icon icon="cart-plus" />
     </IconButton>
   </div>
@@ -15,18 +15,30 @@
 <script>
   import Button from '@/components/Button/Button.vue';
   import IconButton from '@/components/Button/IconButton.vue';
+  import { EventBus } from '@/event-bus';
 
   export default {
+    props: {
+      productId: {
+        type: String,
+        required: true
+      }
+    },
     components: {
       Button,
       IconButton
+    },
+    methods: {
+      iconButtonHandler: function(){
+        EventBus.$emit('addItemCart', this.productId);
+      }
     }
   }
 </script>
 
 <style scoped>
   .action__buy {
-    width: 360px;
+    width: 300px;
     height: 60px;
     /* margin: 0 10px; */
   }

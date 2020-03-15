@@ -6,7 +6,8 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    publicPath: '/',
+    filename: '[id].bundle.js'
   },
   module: {
     rules: [
@@ -61,6 +62,7 @@ module.exports = {
     }
   },
   devServer: {
-    port: 9000
+    port: 9000,
+    historyApiFallback: true
   }
 }

@@ -23,7 +23,7 @@
       ProductDetail,
       Loading
     },
-    created: async function(){
+    async created(){
       try {
         this.loading = true;
 

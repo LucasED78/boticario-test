@@ -9,6 +9,7 @@
 
 <script>
   import Notification from '@/components/Notification/Notification.vue'
+  import CartService from '@/services/CartService';
 
   export default {
     data(){
@@ -25,9 +26,18 @@
     components: {
       Notification
     },
-    created: function(){
-      this.$bus.$on('addItemCart', id => {
+    async beforeMount(){
+      const data = await CartService.get();
+
+      if (data !== null && data.length !== this.cart.length) {
+        this.cart = data;
+      }
+    },
+    async created(){
+      this.$bus.$on('addItemCart', async id => {
         this.cart.push(id);
+        
+        await CartService.save(this.cart);
       })
     }
   }

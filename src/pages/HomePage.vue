@@ -26,7 +26,7 @@
       ProductList,
       Loading
     },
-    created: async function(){
+    async created(){
       try {
         this.loading = true;
 
@@ -45,6 +45,6 @@
     },
     destroyed(){
       this.$bus.$off('floatingButtonClicked');
-    }
+    },
   }
 </script>

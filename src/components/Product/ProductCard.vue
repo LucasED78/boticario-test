@@ -4,7 +4,7 @@
     :style="{backgroundImage: `url(${product.imageUrl[0]})`}" 
     @click.native.self="productClickedHandler">
     <CardBody class="">
-      <CardTitle :title="product.name" />
+      <CardTitle :title="limitedName" />
       <div class="product__price">
         <CardText :content="'R$' + product.price " />
         <FloatingButton :buttonClickedHandler="buttonClickedHandler">
@@ -21,7 +21,7 @@
   import CardBody from '../Card/CardBody.vue';
   import CardText from '../Card/CardText.vue';
   import FloatingButton from '../Button/FloatingButton.vue'
-  import { EventBus } from '@/event-bus'
+  import StringUtil from '@/utils/StringUtil';
 
   export default {
     props: {
@@ -40,9 +40,14 @@
       CardText,
       FloatingButton
     },
+    computed: {
+      limitedName(){
+        return StringUtil.limitCharacters(this.product.name, 24);
+      }
+    },
     methods: {
       buttonClickedHandler(){
-        EventBus.$emit('floatingButtonClicked', this.product._id);
+        this.$bus.$emit('floatingButtonClicked', this.product._id);
       },
       getFullPath(id){
         return `/product/${id}`;

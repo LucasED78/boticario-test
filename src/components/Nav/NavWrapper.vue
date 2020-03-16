@@ -1,20 +1,26 @@
 <template>
   <nav class="nav">
-    <Logo />
-    <NavigationItems />
-    
+    <!-- <NavigationItems /> -->
+    <SideDrawer
+      :backdropClickedHandler="() => showSidedrawer = !showSidedrawer" 
+      :showBackdrop="showSidedrawer" />
   </nav>
 </template>
 
 <script>
-  import Logo from './Logo.vue';
+  import SideDrawer from './Sidedrawer.vue';
   import NavigationItems from './NavigationItems.vue';
   
 
   export default {
+    data() {
+      return {
+        showSidedrawer: true
+      }
+    },
     components: {
-      NavigationItems,
-      Logo
+      SideDrawer,
+      // NavigationItems,
     }
   }
 </script>

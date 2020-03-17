@@ -43,4 +43,10 @@
     line-height: calc(18px * 1.5);
     margin: 20px 0;
   }
+
+  @media (max-width: 733px) {
+    .product__about {
+      padding-bottom: 150px;
+    }
+  }
 </style>

@@ -34,13 +34,13 @@
 
   @media (max-width: 880px){
     .product__list {
-      grid-template-columns: repeat(2, 355px);
+      grid-template-columns: repeat(2, 300px);
     }
   }
 
   @media (max-width: 600px){
     .product__list {
-      grid-template-columns: 355px;
+      grid-template-columns: 320px;
     }
   }
 </style>

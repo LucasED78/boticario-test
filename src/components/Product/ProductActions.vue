@@ -50,4 +50,16 @@
     justify-content: space-between;
     align-items: center;
   }
+
+  @media (max-width: 750px) {
+    .product__actions {
+      width: 100vw;
+      position: fixed;
+      bottom: 0;
+      padding: 20px;
+      justify-content: space-around;
+      background-color: #fff;
+      box-shadow: 0px 0px 10px lightgrey;
+    }
+  }
 </style>

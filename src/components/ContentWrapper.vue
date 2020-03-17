@@ -8,8 +8,8 @@
   .content__wrapper {
     display: flex;
     flex-wrap: wrap;
-    width: 900px;
+    max-width: 900px;
     margin: 0 auto;
-    margin-top: 150px;
+    margin-top: 170px;
   }
 </style>

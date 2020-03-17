@@ -32,4 +32,16 @@
     grid-column-gap: 110px;
     grid-row-gap: 20px;
   }
+
+  @media (max-width: 835px) {
+    .grid {
+      grid-column-gap: 0px;
+    }
+  }
+
+  @media (max-width: 750px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="search">
-    <input type="search" @input="onInputHandler($event.target.value)" placeholder="Pesquise incríveis produtos" class="searchbar"/>
+    <input type="search" @input="onInputHandler($event.target.value)" placeholder="Pesquise incríveis produtos" :class="classes"/>
     <div class="search__icon">
       <font-awesome-icon icon="search" />
     </div>
@@ -11,9 +11,20 @@
   import { EventBus } from '@/event-bus';
 
   export default {
+    props: {
+      modifier: {
+        type: String,
+        default: ''
+      }
+    },
     methods: {
       onInputHandler: function(value){
         EventBus.$emit('onSearchInput', value);
+      }
+    },
+    computed: {
+      classes(){
+        return `searchbar ${this.modifier}`;
       }
     }
   }

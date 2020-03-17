@@ -1,26 +1,27 @@
 <template>
   <nav class="nav">
-    <!-- <NavigationItems /> -->
+    <Toolbar />
     <SideDrawer
       :backdropClickedHandler="() => showSidedrawer = !showSidedrawer" 
-      :showBackdrop="showSidedrawer" />
+      :showBackdrop="showSidedrawer"
+      :toggleClickedHandler="() => showSidedrawer = !showSidedrawer" />
   </nav>
 </template>
 
 <script>
   import SideDrawer from './Sidedrawer.vue';
-  import NavigationItems from './NavigationItems.vue';
+  import Toolbar from './Toolbar.vue';
   
 
   export default {
     data() {
       return {
-        showSidedrawer: true
+        showSidedrawer: false
       }
     },
     components: {
       SideDrawer,
-      // NavigationItems,
+      Toolbar,
     }
   }
 </script>
@@ -28,7 +29,7 @@
 <style scoped>
   .nav {
     width: 100vw;
-    height: 100px;
+    min-height: 100px;
     position: fixed;
     top: 0;
     left: 0;
@@ -37,5 +38,6 @@
     background: #ffffff;
     box-shadow: 0 0 10px lightgrey;
     z-index: 10;
+    padding-bottom: 10px;
   }
 </style>

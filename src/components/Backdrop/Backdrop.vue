@@ -26,5 +26,6 @@
     left: 0;
     background-color: rgba(0, 0, 0, 0.6);
     z-index: 20;
+    cursor: pointer;
   }
 </style>

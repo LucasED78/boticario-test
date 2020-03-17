@@ -1,6 +1,12 @@
 <template>
   <Fragment>
-    <Backdrop :backdropClickedHandler="backdropClickedHandler" :show="showBackdrop" />
+    <Backdrop 
+      :backdropClickedHandler="backdropClickedHandler" 
+      :show="showBackdrop" />
+
+    <ToggleButton 
+      :class="buttonClass"
+      :toggleClickedHandler="toggleClickedHandler" />
 
     <ul :class="`sidedrawer ${showBackdrop ? 'opened' : 'closed'}`">
       <NavigationItem>
@@ -36,12 +42,14 @@
   import { Fragment } from 'vue-fragment';
   import NavigationItem from './NavigationItem.vue';
   import Backdrop from '@/components/Backdrop/Backdrop.vue';
+  import ToggleButton from './ToggleButton.vue';
 
   export default {
     components: {
       Fragment,
+      Backdrop,
       NavigationItem,
-      Backdrop
+      ToggleButton
     },
     props: {
       backdropClickedHandler: {
@@ -51,6 +59,15 @@
       showBackdrop: {
         type: Boolean,
         default: false
+      },
+      toggleClickedHandler: {
+        type: Function,
+        required: true
+      }
+    },
+    computed: {
+      buttonClass(){
+        return `${this.showBackdrop ? 'toggled' : 'hidden'}`;
       }
     }
   }
@@ -65,7 +82,7 @@
     left: 0;
     background-color: #fff;
     z-index: 30;
-    transition: transform 1s;
+    transition: transform 0.5s;
   }
 
   .opened { transform: translateX(0); }
@@ -74,5 +91,19 @@
 
   .sidedrawer li {
     margin: 20px 10px;
+  }
+
+  .hidden {
+    left: 0;
+  }
+
+  .toggled {
+    left: 20%;
+    z-index: 30;
+    top: 0;
+  }
+
+  @media (min-width: 701px){
+    .sidedrawer { display: none; }
   }
 </style>

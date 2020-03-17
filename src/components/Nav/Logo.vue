@@ -8,7 +8,6 @@
 
 <style scoped>
   .logo {
-    margin-left: 20px;
     height: 100px;
   }
 </style>
